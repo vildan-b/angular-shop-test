@@ -23,7 +23,7 @@ export class ProductService {
       errorMessage = 'something went wrong ' + err.error.message
     
     }else{
-      errorMessage = 'aaaaaaaaa'
+      errorMessage = 'a system error'
     } 
     return throwError(errorMessage);
     }
