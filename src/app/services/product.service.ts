@@ -10,24 +10,30 @@ export class ProductService {
   path = "http://localhost:3000/products";
 
   constructor(private http: HttpClient) { }
+
   getProducts(categoryId: any): Observable<Product[]> {
-    return this.http.get<Product[]>(this.path+"?categoryId="+categoryId).pipe(
-      tap((data) => console.log(JSON.stringify(data) )),
+    let newPath = this.path;
+    if (categoryId) {
+      newPath += "?categoryId=" + categoryId;
+
+    }
+    return this.http.get<Product[]>(newPath).pipe(
+      tap((data) => console.log(JSON.stringify(data))),
       catchError(this.handleError)
     );
   }
   handleError(err: HttpErrorResponse) {
-    let errorMessage= ''
+    let errorMessage = ''
 
     if (err.error instanceof ErrorEvent) {
       errorMessage = 'something went wrong ' + err.error.message
-    
-    }else{
-      errorMessage = 'a system error'
-    } 
-    return throwError(errorMessage);
-    }
-  }
 
-  
-  
+    } else {
+      errorMessage = 'a system error'
+    }
+    return throwError(errorMessage);
+  }
+}
+
+
+
