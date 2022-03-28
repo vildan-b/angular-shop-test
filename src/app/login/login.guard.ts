@@ -9,7 +9,7 @@ export class LoginGuard implements CanActivate {
         private router: Router) { }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-        let logged = this.accountService.isLoggendIn();
+        let logged = this.accountService.isLoggedIn();
         if (logged) {
             return true;
         }

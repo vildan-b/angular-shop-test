@@ -22,7 +22,7 @@ export class AccountService {
 
   }
 
-  isLoggendIn(){
+  isLoggedIn(){
     return this.loggedIn;
   }
 
