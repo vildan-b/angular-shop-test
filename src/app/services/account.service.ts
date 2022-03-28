@@ -1,16 +1,22 @@
 import { Injectable } from '@angular/core';
+import { User } from '../login/user';
 
-@Injectable()
+
+@Injectable({
+  providedIn: 'root'
+})
+
 export class AccountService {
 
-  constructor(private user:User) { }
+  constructor() { }
   loggedIn = false;
 
   login(user:User):boolean{
     if(user.userName=="vildan"&&user.password=="12345"){
-      return true;
+      
       this.loggedIn = true;
       localStorage.setItem("isLogged", user.userName)
+      return true;
     } 
     return false; 
 

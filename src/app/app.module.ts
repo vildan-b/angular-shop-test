@@ -13,6 +13,8 @@ import { ProductAddForms1Component } from './product/product-add-forms1/product-
 import { ProductAddForms2Component } from './product/product-add-forms2/product-add-forms2.component';
 import { LoginComponent } from './login/login.component';
 import { AlertifyService } from './services/alertify.service';
+import { LoginGuard } from './login/login.guard';
+
 
 
 @NgModule({
@@ -35,7 +37,7 @@ import { AlertifyService } from './services/alertify.service';
     ReactiveFormsModule
 
   ],
-  providers: [AlertifyService],
+  providers: [AlertifyService,LoginGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
